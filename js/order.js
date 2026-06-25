@@ -143,6 +143,13 @@
     // category chips
     var chips = document.getElementById("catChips");
     if (chips) chips.innerHTML = '<a class="chip" href="#builder">Build Your Own</a>' + MENU.map(function (c) { return '<a class="chip" href="#cat-' + c.id + '">' + c.name.replace(/ \(.*/,'') + '</a>'; }).join("");
+    if (chips) chips.querySelectorAll(".chip").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        var el = document.getElementById(a.getAttribute("href").slice(1));
+        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 132, behavior: "smooth" });
+      });
+    });
   }
   function esc(s){ return (s||"").replace(/"/g,"&quot;"); }
 
