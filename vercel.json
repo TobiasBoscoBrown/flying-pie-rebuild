@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/blog/free-pizza-boise-its-your-day.html",
+      "destination": "/blog/how-to-eat-pizza-for-free-in-boise.html",
+      "permanent": true
+    }
+  ]
+}
