@@ -15,15 +15,26 @@
     });
   }
 
-  // scroll reveal
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  // scroll reveal (failsafe: content must NEVER stay hidden)
+  (function () {
+    var els = [].slice.call(document.querySelectorAll(".reveal"));
+    if (!els.length) return;
+    function show(el) { el.classList.add("in"); }
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    els.forEach(function (el) { if (el.getBoundingClientRect().top < vh * 0.95) show(el); });
+    if (!("IntersectionObserver" in window)) { els.forEach(show); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.06, rootMargin: "0px 0px -4% 0px" });
+    els.forEach(function (el) { if (!el.classList.contains("in")) io.observe(el); });
+    setTimeout(function () { els.forEach(show); }, 1600);
+    window.addEventListener("load", function () {
+      var h = window.innerHeight;
+      els.forEach(function (el) { if (el.getBoundingClientRect().top < h * 1.15) show(el); });
     });
-  }, { threshold: 0.12 });
-  document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+  })();
 
-  // duplicate marquee content for seamless loop
+  // duplicate marquee content for a seamless loop
   document.querySelectorAll(".marquee__track").forEach(function (track) {
     track.innerHTML = track.innerHTML + track.innerHTML;
   });
