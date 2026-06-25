@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Your Own &amp; Order — Flying Pie Pizzaria</title>
+<meta name="description" content="Build your own Flying Pie pizza: pick your size, crust, sauce and toppings, watch your pie come together, and place your order. The Imagination Station, online.">
+<link rel="canonical" href="https://flyingpie.example/order.html">
+<meta property="og:title" content="Build Your Own Pizza — Flying Pie">
+<meta property="og:description" content="The Imagination Station, online. Build it, price it, order it.">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav__row">
+    <a class="brandmark" href="index.html" aria-label="Flying Pie home"><img src="assets/flying-pie-logo.png" alt="Flying Pie Pizzaria" class="logo-img"></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="menu.html">Menu</a><a href="locations.html">Locations</a><a href="about.html">Our Story</a><a href="blog/index.html">The Crust Gazette</a>
+    </nav>
+    <div class="nav__cta">
+      <a href="about.html#iyd" class="btn btn--ghost" style="box-shadow:none">It's Your Day!</a>
+      <a href="order.html" class="btn btn--green">Order Now <span class="arr">→</span></a>
+    </div>
+    <button class="nav__burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<nav class="mobile-menu" aria-label="Mobile"><a href="menu.html">Menu</a><a href="locations.html">Locations</a><a href="about.html">Our Story</a><a href="blog/index.html">The Crust Gazette</a><a href="order.html" class="btn btn--red">Order Now →</a></nav>
+
+<section class="hero" style="padding:48px 0 18px">
+  <div class="wrap" style="text-align:center;max-width:760px">
+    <span class="eyebrow" style="justify-content:center">Welcome to the Imagination Station</span>
+    <h1 class="reveal" style="font-size:clamp(2.4rem,6vw,4.4rem)">Build your own pie</h1>
+    <p class="lead reveal" style="margin:0 auto">Pick a size, choose your canvas, then pile on the good stuff. Your pizza updates as you go. When it looks unreasonably perfect, send it our way.</p>
+  </div>
+</section>
+
+<section class="section-sm" style="padding-top:24px">
+  <div class="wrap builder">
+
+    <!-- LEFT: live pizza + cart -->
+    <div class="builder__panel">
+      <div class="pizza-stage">
+        <div class="price-tag" id="priceTag">$0.00</div>
+        <svg id="pizzaSvg" viewBox="0 0 400 400" role="img" aria-label="Your pizza in progress">
+          <ellipse cx="200" cy="356" rx="150" ry="26" fill="#1c1813" opacity="0.14"/>
+          <circle cx="200" cy="196" r="168" fill="#e0a23f" stroke="#1c1813" stroke-width="5"/>
+          <g id="charSpots" fill="#9a5a1f" opacity="0.5">
+            <ellipse cx="200" cy="40" rx="13" ry="7"/><ellipse cx="92" cy="92" rx="11" ry="6" transform="rotate(-35 92 92)"/>
+            <ellipse cx="308" cy="96" rx="11" ry="6" transform="rotate(35 308 96)"/><ellipse cx="44" cy="196" rx="7" ry="12"/>
+            <ellipse cx="356" cy="196" rx="7" ry="12"/><ellipse cx="200" cy="352" rx="13" ry="7"/>
+          </g>
+          <circle id="sauceLayer" cx="200" cy="196" r="140" fill="#cf3a2f" stroke="#1c1813" stroke-width="3"/>
+          <circle id="cheeseLayer" cx="200" cy="196" r="134" fill="#fdd457"/>
+          <g id="cheeseMottle" fill="#f0b73f" opacity="0.6">
+            <circle cx="150" cy="140" r="13"/><circle cx="258" cy="150" r="11"/><circle cx="268" cy="252" r="14"/><circle cx="142" cy="250" r="11"/>
+          </g>
+          <g id="toppingLayer"></g>
+        </svg>
+        <div class="build-summary" id="buildSummary">A blank canvas of Whirled-Famous Red Sauce and whole-milk mozz.</div>
+      </div>
+
+      <div class="cart">
+        <h4>Your order</h4>
+        <div id="cartItems"><p class="cart__empty">Your cart's empty. Build a pie and hit "Add to order."</p></div>
+        <div class="cart__total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+        <div class="order-actions" style="margin-top:14px">
+          <button class="btn btn--green btn--lg" id="checkoutBtn" style="flex:1;justify-content:center">Place order <span class="arr">→</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: options -->
+    <div>
+      <div class="opt-group">
+        <h3>1. Pick a size <span class="hint">required</span></h3>
+        <div class="opt-row" id="sizeRow"></div>
+      </div>
+      <div class="opt-group">
+        <h3>2. Choose your crust</h3>
+        <div class="opt-row" id="crustRow"></div>
+      </div>
+      <div class="opt-group">
+        <h3>3. Pick a sauce</h3>
+        <div class="opt-row" id="sauceRow"></div>
+      </div>
+      <div class="opt-group">
+        <h3>4. Meats <span class="hint">tap to add</span></h3>
+        <div class="topping-grid" id="meatRow"></div>
+      </div>
+      <div class="opt-group">
+        <h3>5. Veggies <span class="hint">tap to add</span></h3>
+        <div class="topping-grid" id="vegRow"></div>
+      </div>
+      <div class="order-actions">
+        <button class="btn btn--red btn--lg" id="addBtn">Add to order <span class="arr">→</span></button>
+        <button class="btn btn--ghost" id="resetBtn" style="box-shadow:none">Start over</button>
+      </div>
+      <p style="font-size:.82rem;color:var(--ink-soft);margin-top:16px">Prices shown are sample pricing for this concept build.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ORDER MODAL -->
+<div class="modal" id="orderModal" aria-hidden="true">
+  <div class="modal__card">
+    <button class="modal__close" id="modalClose" aria-label="Close">&times;</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div><a class="brandmark" href="index.html" style="color:var(--paper)"><img src="assets/flying-pie-logo.png" alt="Flying Pie Pizzaria" class="logo-img logo-img--footer"></a><p style="margin-top:16px;opacity:.85;max-width:34ch">Homegrown, whirled-famous pizza in the Treasure Valley since 1978.</p></div>
+      <div><h5>Eat</h5><ul><li><a href="menu.html">Full Menu</a></li><li><a href="order.html">Build Your Own</a></li><li><a href="order.html">Order Delivery</a></li><li><a href="menu.html#drinks">Beer &amp; Wine</a></li></ul></div>
+      <div><h5>Visit</h5><ul><li><a href="locations.html">All Locations</a></li><li><a href="about.html">Our Story</a></li><li><a href="about.html#iyd">It's Your Day!</a></li><li><a href="blog/index.html">The Crust Gazette</a></li></ul></div>
+      <div><h5>The good stuff</h5><ul><li><a href="blog/free-pizza-boise-its-your-day.html">Free Pizza in Boise →</a></li><li><a href="locations.html">PieCommunity+ Rewards</a></li><li><a href="locations.html">Gift Cards</a></li><li><a href="about.html">Work Here</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><span>© <span data-year>2026</span> Flying Pie Pizzaria · Boise, Idaho. A loving fan-built concept rebuild.</span><span>Pie in the sky since 1978</span></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/builder.js"></script>
+</body>
+</html>
