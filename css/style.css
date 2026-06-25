@@ -485,3 +485,13 @@ table.cmp tbody tr:nth-child(even){background:var(--paper)}
 
 /* hero pizza as a clean circular photo */
 .hero__pizza{width:min(440px,82%);height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:50%;border:7px solid var(--ink);background:var(--paper-2);box-shadow:0 26px 52px -18px rgba(28,24,19,.6)}
+
+/* hero award stickers (replace the star + squiggle doodles) */
+.hero-sticker{position:absolute;z-index:6;max-width:215px;white-space:normal;text-align:center;line-height:1.2;border-radius:14px;padding:10px 14px;box-shadow:3px 4px 0 rgba(28,24,19,.85);background:#fff}
+.hero-sticker--tl{top:0;left:-5%;transform:rotate(-7deg)}
+.hero-sticker--br{bottom:2%;right:-5%;transform:rotate(6deg)}
+@media(max-width:860px){
+  .hero-sticker{max-width:160px;font-size:.7rem;padding:8px 11px}
+  .hero-sticker--tl{left:-2%}
+  .hero-sticker--br{right:-2%}
+}
