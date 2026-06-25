@@ -147,7 +147,7 @@
       a.addEventListener("click", function (e) {
         e.preventDefault();
         var el = document.getElementById(a.getAttribute("href").slice(1));
-        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 132, behavior: "smooth" });
+        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 132, behavior: "instant" });
       });
     });
   }
