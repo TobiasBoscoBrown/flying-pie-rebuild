@@ -482,3 +482,6 @@ table.cmp tbody tr:nth-child(even){background:var(--paper)}
   .mgrid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
   .cartbar{top:74px}
 }
+
+/* hero pizza as a clean circular photo */
+.hero__pizza{width:min(440px,82%);height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:50%;border:7px solid var(--ink);background:var(--paper-2);box-shadow:0 26px 52px -18px rgba(28,24,19,.6)}
