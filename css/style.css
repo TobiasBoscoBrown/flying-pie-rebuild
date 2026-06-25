@@ -428,3 +428,57 @@ table.cmp tbody tr:nth-child(even){background:var(--paper)}
 .modal__close{position:absolute;top:14px;right:16px;background:none;border:0;font-size:1.8rem;cursor:pointer;line-height:1}
 .modal h2{margin-bottom:.2em}
 @media(max-width:860px){.builder{grid-template-columns:1fr;gap:24px}.builder__panel{position:static}}
+
+/* =====================  REAL PHOTO CARDS  ===================== */
+.pcard__photo{width:100%;height:184px;object-fit:cover;border-radius:14px;border:2.5px solid var(--ink);margin-bottom:14px;display:block;background:var(--paper-2)}
+
+/* =====================  MENU SECTIONS (order page)  ===================== */
+.menu-cat{margin-top:54px}
+.menu-cat__head{margin-bottom:20px}
+.menu-cat__head h2{font-size:clamp(1.6rem,3.4vw,2.4rem)}
+.menu-cat__head p{color:var(--ink-soft);font-size:.98rem;margin:.2em 0 0}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.mitem{background:#fff;border:2.5px solid var(--ink);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-card);display:flex;flex-direction:column;transition:transform .16s ease}
+.mitem:hover{transform:translateY(-4px)}
+.mitem__img{height:150px;background-size:cover;background-position:center;border-bottom:2.5px solid var(--ink)}
+.mitem__body{padding:14px 16px 16px;display:flex;flex-direction:column;flex:1}
+.mitem__body h4{font-family:var(--font-display);font-size:1.2rem;margin:0 0 .15em}
+.mitem__body p{font-size:.88rem;color:var(--ink-soft);margin:0 0 12px;flex:1}
+.mitem__foot{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.mitem__price{font-family:var(--font-display);font-size:1.3rem;font-weight:600}
+.mitem__add{padding:9px 16px;font-size:.9rem;box-shadow:2px 2px 0 rgba(28,24,19,.85)}
+.mitem__add.added{background:var(--green-deep)}
+
+/* sticky cart button (mobile-friendly) */
+.cartbar{position:sticky;top:74px;z-index:120;display:flex;justify-content:flex-end;pointer-events:none}
+.cartbar .btn{pointer-events:auto}
+.cartbtn__c{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:999px;background:var(--yellow);color:var(--ink);border:2px solid var(--ink);font-size:.8rem;margin-left:6px;padding:0 5px}
+.pulse{animation:pls .35s ease}
+@keyframes pls{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}
+
+/* builder price line + divider */
+.builder-pricebar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:6px 0 18px;padding:14px 18px;border:2.5px solid var(--ink);border-radius:16px;background:var(--paper-2)}
+.builder-pricebar .lab{font-family:var(--font-grotesk);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:var(--ink-soft)}
+.builder-pricebar .val{font-family:var(--font-display);font-size:2rem;color:var(--green)}
+
+/* checkout extras */
+.seg{display:flex;gap:8px;margin:18px 0 14px;border:2.5px solid var(--ink);border-radius:14px;padding:5px;background:#fff}
+.seg__b{flex:1;border:0;background:none;cursor:pointer;font-family:var(--font-grotesk);font-weight:700;padding:11px;border-radius:10px;font-size:.95rem}
+.seg__b.on{background:var(--green);color:#fff}
+.fld{font-family:var(--font-grotesk);font-size:1rem;padding:12px 14px;border:2.5px solid var(--ink);border-radius:12px;width:100%}
+.fld-label{display:block;font-family:var(--font-grotesk);font-weight:700;font-size:.9rem;margin-bottom:5px}
+.ord-review{border:2px solid var(--ink);border-radius:14px;padding:4px 16px;margin-bottom:6px;max-height:230px;overflow:auto}
+.demo-note{font-size:.8rem;color:var(--ink-soft);margin:12px 0 0}
+.dd-box{border:2.5px solid var(--ink);border-radius:16px;background:#fff3cf;padding:20px;margin-top:6px}
+
+/* cart qty rows */
+.qtyrow{display:flex;align-items:center;gap:8px;margin-top:8px}
+.qtybtn{width:26px;height:26px;border:2px solid var(--ink);background:#fff;border-radius:8px;cursor:pointer;font-weight:700;line-height:1;font-size:1rem}
+.qn{min-width:18px;text-align:center;font-weight:700}
+.cart__item .rm{margin-left:6px}
+.lineprice{font-family:var(--font-display);font-size:1.1rem;white-space:nowrap}
+
+@media(max-width:860px){
+  .mgrid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .cartbar{top:74px}
+}
