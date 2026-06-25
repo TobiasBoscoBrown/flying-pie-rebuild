@@ -2,7 +2,7 @@
 (function () {
   "use strict";
   var IMG = "https://olo-images-live.imgix.net/";
-  function ph(p, w, h) { return IMG + p + "?w=" + (w||600) + "&h=" + (h||440) + "&fit=crop&crop=edges&auto=format,compress&q=72"; }
+  function ph(p) { var h = p.split("/")[1].replace(/\.(jpe?g|png)$/, ""); return "assets/food/" + h + ".jpg"; }
   function money(n) { return "$" + n.toFixed(2); }
 
   /* ---------------- MENU DATA (real items + photos, sample pricing) ---------------- */
@@ -52,8 +52,9 @@
     ]},
     { id:"drinks", name:"Soft Drinks", note:"Ice-cold.", items:[
       { n:"Sprite", p:2.99, img:"37/37f3b7dd3b474f9cacc06c15d2fdb3da.jpg", d:"20oz bottle." },
-      { n:"Coca-Cola", p:2.99, img:"37/37f3b7dd3b474f9cacc06c15d2fdb3da.jpg", d:"20oz bottle." },
-      { n:"Diet Coke", p:2.99, img:"37/37f3b7dd3b474f9cacc06c15d2fdb3da.jpg", d:"20oz bottle." }
+      { n:"Coca-Cola", p:2.99, img:"c8/c80de1898ef24475985485eda4972312.png", d:"20oz bottle." },
+      { n:"Diet Coke", p:2.99, img:"78/781e29f03a534adfab218ca68b2575d2.png", d:"20oz bottle." },
+      { n:"Dr Pepper", p:2.99, img:"6e/6e54307301794485a417bb7b15699210.png", d:"20oz bottle." }
     ]},
     { id:"beer", name:"Beer To Go", note:"Cans & bottles, where available.", items:[
       { n:"Sockeye Tripel Pi", p:6.50, img:"70/70e5b36d662e43a7a5c179132b279be6.jpeg", d:"Our exclusive Belgian-style Abbey ale." },
