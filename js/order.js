@@ -114,6 +114,8 @@
     }
     var t = document.getElementById("cartTotal"); if (t) t.textContent = money(cartTotal());
     var c2 = document.getElementById("cartBtnCount"); if (c2) c2.textContent = cartCount();
+    var c3 = document.getElementById("cartBtnCount2"); if (c3) c3.textContent = cartCount();
+    var cm = document.getElementById("cartMini"); if (cm) cm.textContent = money(cartTotal());
   }
 
   /* ---------------- RENDER MENU SECTIONS ---------------- */
@@ -343,6 +345,9 @@
     $("resetBtn").addEventListener("click", function () { st={ size:"m", crust:"orig", sauce:"red", region:"whole", toppings:{} }; renderOpts(); upd(); });
     var cb=$("checkoutBtn"); if(cb) cb.addEventListener("click", openCheckout);
     var cb2=$("cartBtn"); if(cb2) cb2.addEventListener("click", function(){ var c=document.getElementById("cartPanel"); c.scrollIntoView({behavior:"smooth"}); });
+    var cb3=$("cartBtn2"); if(cb3) cb3.addEventListener("click", function(){ document.getElementById("cartPanel").scrollIntoView({behavior:"smooth"}); });
+    var spy=function(){ var pos=window.scrollY+150, cur=null; [].slice.call(document.querySelectorAll("#builder, .menu-cat")).forEach(function(s){ if(s.offsetTop<=pos) cur=s.id; }); document.querySelectorAll("#catChips .chip").forEach(function(c){ c.classList.toggle("on", c.getAttribute("href")==="#"+cur); }); };
+    window.addEventListener("scroll", spy, {passive:true}); setTimeout(spy,200);
     $("modalClose").addEventListener("click", function(){ $("orderModal").classList.remove("open"); });
     $("orderModal").addEventListener("click", function(e){ if(e.target.id==="orderModal") $("orderModal").classList.remove("open"); });
   });

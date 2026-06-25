@@ -495,3 +495,20 @@ table.cmp tbody tr:nth-child(even){background:var(--paper)}
   .hero-sticker--tl{left:-2%}
   .hero-sticker--br{right:-2%}
 }
+
+/* =====================  ORDER PAGE: sticky jump bar  ===================== */
+.orderbar{position:sticky;top:73px;z-index:150;background:rgba(251,244,230,.96);backdrop-filter:blur(8px);border-bottom:2px solid var(--ink)}
+.orderbar__inner{display:flex;align-items:center;gap:12px;padding:10px 0}
+.orderbar__lab{font-family:var(--font-grotesk);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);flex:0 0 auto}
+.orderbar__chips{display:flex;gap:8px;overflow-x:auto;flex:1;scrollbar-width:none;-ms-overflow-style:none;padding:2px 0}
+.orderbar__chips::-webkit-scrollbar{display:none}
+.orderbar__chips .chip{white-space:nowrap;flex:0 0 auto;cursor:pointer;font-size:.85rem;padding:7px 13px}
+.orderbar__chips .chip.on{background:var(--green);color:#fff;border-color:#063a23}
+.orderbar__cart{flex:0 0 auto;padding:9px 15px;font-size:.9rem;box-shadow:2px 2px 0 rgba(28,24,19,.85)}
+/* land anchored jumps below the two sticky bars */
+#builder, .menu-cat{scroll-margin-top:150px}
+@media(max-width:860px){
+  .orderbar__lab{display:none}
+  .orderbar__cart{padding:8px 12px;font-size:.82rem}
+  #builder,.menu-cat{scroll-margin-top:138px}
+}
