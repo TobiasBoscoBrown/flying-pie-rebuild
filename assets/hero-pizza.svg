@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 460" width="460" height="460" role="img" aria-label="A whole Flying Pie pizza, top down">
+  <defs>
+    <radialGradient id="cheese" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#ffe08a"/>
+      <stop offset="70%" stop-color="#fbcf57"/>
+      <stop offset="100%" stop-color="#f3b500"/>
+    </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="0"/></filter>
+  </defs>
+  <!-- saucer glow ring -->
+  <circle cx="230" cy="232" r="206" fill="#008144" opacity="0.10"/>
+  <circle cx="230" cy="230" r="186" fill="#1c1813"/>
+  <!-- crust -->
+  <circle cx="230" cy="227" r="182" fill="#e7b25a" stroke="#1c1813" stroke-width="5"/>
+  <circle cx="230" cy="227" r="182" fill="none" stroke="#c98a3a" stroke-width="2" stroke-dasharray="3 10"/>
+  <!-- sauce + cheese -->
+  <circle cx="230" cy="227" r="158" fill="#cf3a2f"/>
+  <circle cx="230" cy="227" r="150" fill="url(#cheese)"/>
+  <!-- cheese mottling -->
+  <g fill="#f0bf45" opacity="0.6">
+    <circle cx="170" cy="160" r="16"/><circle cx="300" cy="180" r="13"/>
+    <circle cx="270" cy="300" r="18"/><circle cx="160" cy="290" r="12"/>
+    <circle cx="230" cy="230" r="10"/>
+  </g>
+  <!-- pepperoni -->
+  <g>
+    <circle cx="160" cy="150" r="20" fill="#d23b34"/><circle cx="160" cy="150" r="20" fill="none" stroke="#a82a25" stroke-width="3"/>
+    <circle cx="300" cy="155" r="20" fill="#d23b34"/><circle cx="300" cy="155" r="20" fill="none" stroke="#a82a25" stroke-width="3"/>
+    <circle cx="320" cy="270" r="20" fill="#d23b34"/><circle cx="320" cy="270" r="20" fill="none" stroke="#a82a25" stroke-width="3"/>
+    <circle cx="180" cy="305" r="20" fill="#d23b34"/><circle cx="180" cy="305" r="20" fill="none" stroke="#a82a25" stroke-width="3"/>
+    <circle cx="232" cy="232" r="20" fill="#d23b34"/><circle cx="232" cy="232" r="20" fill="none" stroke="#a82a25" stroke-width="3"/>
+    <circle cx="120" cy="232" r="17" fill="#d23b34"/><circle cx="120" cy="232" r="17" fill="none" stroke="#a82a25" stroke-width="3"/>
+  </g>
+  <!-- basil -->
+  <g fill="#1f7a3f" stroke="#0f4f27" stroke-width="2">
+    <path d="M250 120 q14 -8 22 4 q-12 10 -22 -4 z"/>
+    <path d="M120 290 q14 -8 22 4 q-12 10 -22 -4 z"/>
+    <path d="M300 320 q14 -8 22 4 q-12 10 -22 -4 z"/>
+  </g>
+  <!-- green peppers -->
+  <g fill="none" stroke="#0a7a3c" stroke-width="6" stroke-linecap="round">
+    <path d="M205 175 q14 4 12 20"/>
+    <path d="M270 250 q-2 16 14 20"/>
+    <path d="M155 250 q12 6 6 22"/>
+  </g>
+  <!-- slice cuts -->
+  <g stroke="#c98a3a" stroke-width="2" opacity="0.55">
+    <line x1="230" y1="69" x2="230" y2="385"/>
+    <line x1="72" y1="227" x2="388" y2="227"/>
+    <line x1="118" y1="115" x2="342" y2="339"/>
+    <line x1="342" y1="115" x2="118" y2="339"/>
+  </g>
+</svg>
